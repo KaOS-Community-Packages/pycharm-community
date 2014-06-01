@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=PyCharm
+Icon=pycharm
+GenericName=Python IDE
+Comment=Powerful Python and Django IDE
+Exec=/usr/bin/pycharm
+Terminal=false
+Type=Application
+Categories=Development;IDE;
