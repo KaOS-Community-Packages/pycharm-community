@@ -1,8 +1,5 @@
-# $Id: pkgbuild-mode.el,v 1.23 2007/10/20 16:02:14 juergen Exp $
-# Contributor: David Keogh <davekeogh@archlinux.us>
-
 pkgname=pycharm-community
-pkgver=3.4
+pkgver=3.4.1
 pkgrel=1
 pkgdesc="Powerful Python and Django IDE. Community edition."
 arch=('x86_64')
