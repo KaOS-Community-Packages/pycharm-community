@@ -11,7 +11,7 @@ conflicts=('pycharm')
 provides=('pycharm')
 source=(http://download.jetbrains.com/python/$pkgname-$pkgver.tar.gz
         'pycharm-community.desktop' )
-sha256sums=('e63417302c4342fef07e90877beff7d770525ef34150d58585e69c5518b291ab'
+sha256sums=('96427b1e842e7c09141ec4d3ede627c5ca7d821c0d6c98169b56a34f9035ef64'
             '6d8561ee4c5040502f02daf1902303bb0b73fb70181bfce6d51eaa60a9b6135b')
 
 package() {
