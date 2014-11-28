@@ -9,9 +9,9 @@ license=('Apache')
 depends=('java-environment>=6' 'giflib')
 conflicts=('pycharm')
 provides=('pycharm')
-source=(http://download.jetbrains.com/python/$pkgname-$pkgver.tar.gz
+source=(http://download.jetbrains.com/python/$pkgname-$pkgver.$pkgrel.tar.gz
         'pycharm-community.desktop' )
-sha256sums=('9f956ea1ae64b9ceb4cb84b22cd684b3456873210b8db6a999046bd1de2cdf02'
+sha256sums=('62dbf4db642f3347852088f29dc84c91acfd8f5f0e05a0dee1f7dd5662d7004a'
             '446134e5ef3012a6f19549d63fb3e18f07cdd00b39cd67fec99af9338a594f1e')
 
 package() {
