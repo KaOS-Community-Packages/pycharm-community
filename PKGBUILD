@@ -17,7 +17,7 @@ sha256sums=('62dbf4db642f3347852088f29dc84c91acfd8f5f0e05a0dee1f7dd5662d7004a'
 package() {
   cd $srcdir
   mkdir -p $pkgdir/opt/$pkgname
-  cp -R $srcdir/$pkgname-$pkgver-$pkgrel/* $pkgdir/opt/$pkgname
+  cp -R $srcdir/$pkgname-$pkgver.$pkgrel/* $pkgdir/opt/$pkgname
   
   echo '-Dawt.useSystemAAFontSettings=on' >> $pkgdir/opt/$pkgname/bin/pycharm64.vmoptions
   echo '-Dswing.aatext=true' >> $pkgdir/opt/$pkgname/bin/pycharm64.vmoptions 
