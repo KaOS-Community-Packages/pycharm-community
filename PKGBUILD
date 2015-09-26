@@ -9,7 +9,8 @@ license=('Apache')
 depends=('java-environment>=6' 'giflib')
 source=(http://download.jetbrains.com/python/$pkgname-$pkgver.tar.gz
         'pycharm-community.desktop' )
-sha256sums=('6bdd344eb88ee50cf29e98278c87faad0d1a23a7ec84c1794b956d2633024228')
+sha512sums=('e0c90fd84d60e1ac644c2b29aef484c1768cf8832c70cbc1a7905b64e0ef0fd7'
+            'ec50665b9b15fcdaad762852e42103487b59fc4c8d1e711fd3a30123f8c959eb')
 package() {
   cd $srcdir
   mkdir -p $pkgdir/opt/$pkgname
