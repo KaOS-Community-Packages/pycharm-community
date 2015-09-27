@@ -1,5 +1,5 @@
 pkgname=pycharm-community
-pkgver=4.5.1
+pkgver=4.5.4
 pkgrel=1
 pkgdesc="Powerful Python and Django IDE. Community edition."
 arch=('x86_64')
@@ -9,7 +9,7 @@ license=('Apache')
 depends=('java-environment>=6' 'giflib')
 source=(http://download.jetbrains.com/python/$pkgname-$pkgver.tar.gz
         'pycharm-community.desktop' )
-sha512sums=('cbf4fdbfac803494db76c8ac77620f714ed4922989dc8fec90df94a0f413bb09b2fa7f58cd45d3ffb3edde7582e2a4b5f7deaaf647606449aaacc5780d524178'
+sha512sums=('e0c90fd84d60e1ac644c2b29aef484c1768cf8832c70cbc1a7905b64e0ef0fd7ec50665b9b15fcdaad762852e42103487b59fc4c8d1e711fd3a30123f8c959eb'
             'e708ffedc379a51e509eafa1abd30bbfaa3def02961b027d87b15093e4d9e07cdbd4e427245f5c135b5a2be6c88516882abbddb41fe907e8289f53812d7a8281')
 package() {
   cd $srcdir
