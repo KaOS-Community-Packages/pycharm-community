@@ -1,6 +1,11 @@
-pycharm-community
-=================
+## pycharm-community
 
 Powerful Python and Django IDE. Community edition.
 
-http://www.jetbrains.com/pycharm/
+See http://www.jetbrains.com/pycharm/
+
+# Depends 'qarma' from kcp (replacement for zenity)
+
+`kcp -di qarma` 
+    then
+`kcp -i pycharm-community`
