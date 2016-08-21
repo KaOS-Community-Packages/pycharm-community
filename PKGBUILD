@@ -1,5 +1,5 @@
 pkgname=pycharm-community
-pkgver=2016.2
+pkgver=2016.2.1
 pkgrel=1
 pkgdesc="Powerful Python and Django IDE. Community edition."
 arch=('x86_64')
@@ -9,7 +9,7 @@ license=('Apache')
 depends=('java-environment>=6' 'giflib' )
 source=("http://download.jetbrains.com/python/$pkgname-$pkgver.tar.gz"
         'pycharm-community.desktop' )
-sha256sums=('334eaa740d963cf12bf2e5c2107909d16238b739c2afa017dc4587103eb60176'
+sha256sums=('76a5d58a6ecbafa48abde9823948f0614472ecbc0535c639ceb593569a1e06a7'
             '446134e5ef3012a6f19549d63fb3e18f07cdd00b39cd67fec99af9338a594f1e')
 
 
