@@ -1,30 +1,37 @@
 pkgname=pycharm-community
-pkgver=2016.3
+pkgver=2017.1.1
 pkgrel=1
 pkgdesc="Powerful Python and Django IDE. Community edition."
 arch=('x86_64')
 options=('!strip')
 url="http://www.jetbrains.com/pycharm/"
 license=('Apache')
-depends=('java-environment>=6' 'giflib' )
-source=("http://download.jetbrains.com/python/$pkgname-$pkgver.tar.gz"
-        'pycharm-community.desktop' )
-sha256sums=('3a5f1cc3643b3dbe285fad278d604c715e13adbfc21fdfbe96a8f80fa31028de'
-            '446134e5ef3012a6f19549d63fb3e18f07cdd00b39cd67fec99af9338a594f1e')
+depends=('openjdk' 'giflib')
+source=("http://download.jetbrains.com/python/${pkgname}-${pkgver}.tar.gz"
+        'pycharm-community.desktop'
+        'pycharm.svg')
+md5sums=('6dda1c8a5ed46fb611454d8b5edc42d4'
+         '7e6e1f9786e55bbee3efe73b91f3684e'
+         'dc869b1bb321c7a9895192de2e0d56d3')
 
 
 package() {
-  cd $srcdir
-  mkdir -p $pkgdir/opt/$pkgname
-  cp -R $srcdir/$pkgname-$pkgver/* $pkgdir/opt/$pkgname
+    mkdir -p ${pkgdir}/opt/${pkgname}
+    mkdir -p ${pkgdir}/usr/share/{applications,icons/hicolor}
+    mkdir -p ${pkgdir}/usr/bin
+    
+    cd ${srcdir}
+    python2 ${pkgname}-${pkgver}/helpers/pydev/setup_cython.py build_ext --inplace
+    python3 ${pkgname}-${pkgver}/helpers/pydev/setup_cython.py build_ext --inplace
+    rm -rf ${pkgname}-${pkgver}/jre64
+    
+    cp -R ${pkgname}-${pkgver}/* ${pkgdir}/opt/${pkgname}
+    echo '-Dawt.useSystemAAFontSettings=on' >> ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
+    echo '-Dswing.aatext=true' >> ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
 
-  echo '-Dawt.useSystemAAFontSettings=on' >> $pkgdir/opt/$pkgname/bin/pycharm64.vmoptions
-  echo '-Dswing.aatext=true' >> $pkgdir/opt/$pkgname/bin/pycharm64.vmoptions
+    install -Dm644 ${srcdir}/pycharm-community.desktop ${pkgdir}/usr/share/applications/
+    install -Dm644 ${srcdir}/pycharm.svg ${pkgdir}/usr/share/icons/hicolor/scalable/apps/pycharm.svg
+    rm ${pkgdir}/opt/${pkgname}/bin/pycharm.png
 
-  mkdir -p $pkgdir/usr/share/{applications,pixmaps}
-  install -Dm644 $startdir/pycharm-community.desktop $pkgdir/usr/share/applications/
-  install -Dm644 $pkgdir/opt/$pkgname/bin/pycharm.png $pkgdir/usr/share/pixmaps/pycharm.png
-
-  mkdir -p $pkgdir/usr/bin
-  ln -s /opt/pycharm-community/bin/pycharm.sh $pkgdir/usr/bin/pycharm
+    ln -s /opt/pycharm-community/bin/pycharm.sh ${pkgdir}/usr/bin/pycharm
 }
