@@ -1,5 +1,5 @@
 pkgname=pycharm-community
-pkgver=2017.1.4
+pkgver=2017.1.5
 pkgrel=1
 pkgdesc="Powerful Python and Django IDE. Community edition."
 arch=('x86_64')
@@ -10,10 +10,9 @@ depends=('openjdk' 'giflib')
 source=("http://download.jetbrains.com/python/${pkgname}-${pkgver}.tar.gz"
         'pycharm-community.desktop'
         'pycharm.svg')
-md5sums=('f6d279a45bfdfb8899277eab2c0e2ece'
+md5sums=('27059f2d7841746490bf855db3923b75'
          '7e6e1f9786e55bbee3efe73b91f3684e'
          'dc869b1bb321c7a9895192de2e0d56d3')
-
 
 package() {
     mkdir -p ${pkgdir}/opt/${pkgname}
@@ -26,7 +25,7 @@ package() {
     rm -rf ${pkgname}-${pkgver}/jre64
     
     cp -R ${pkgname}-${pkgver}/* ${pkgdir}/opt/${pkgname}
-    echo '-Dawt.useSystemAAFontSettings=on' >> ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
+    sed -i 's/lcd/on/' ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
     echo '-Dswing.aatext=true' >> ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
 
     install -Dm644 ${srcdir}/pycharm-community.desktop ${pkgdir}/usr/share/applications/
