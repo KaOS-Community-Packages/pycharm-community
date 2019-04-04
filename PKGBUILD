@@ -1,5 +1,5 @@
 pkgname=pycharm-community
-pkgver=2018.2.5
+pkgver=2019.1.1
 pkgrel=1
 pkgdesc="Powerful Python and Django IDE. Community edition."
 arch=('x86_64')
@@ -10,7 +10,7 @@ depends=('openjdk')
 source=("http://download.jetbrains.com/python/${pkgname}-${pkgver}.tar.gz"
         'pycharm-community.desktop'
         'pycharm.svg')
-md5sums=('f3fb7152df5a329c405037952c7759e4'
+md5sums=('7a0749748631f3ca259f411c1996a8fa'
          '99ac487202a427060a9956ffa2e34a06'
          'dc869b1bb321c7a9895192de2e0d56d3')
 
