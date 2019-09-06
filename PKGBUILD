@@ -1,5 +1,6 @@
+
 pkgname=pycharm-community
-pkgver=2019.2
+pkgver=2019.2.1
 pkgrel=1
 pkgdesc="Powerful Python and Django IDE. Community edition."
 arch=('x86_64')
@@ -10,7 +11,7 @@ depends=('openjdk')
 source=("http://download.jetbrains.com/python/${pkgname}-${pkgver}.tar.gz"
         'pycharm-community.desktop'
         'pycharm.svg')
-md5sums=('f4669294f641823aaec85a443fd76c3a'
+md5sums=('e69414b00959ad4d5f898f299de7bea1'
          '99ac487202a427060a9956ffa2e34a06'
          'dc869b1bb321c7a9895192de2e0d56d3')
 
@@ -20,9 +21,8 @@ package() {
     mkdir -p ${pkgdir}/usr/bin
     
     cd ${srcdir}
-    python2 ${pkgname}-${pkgver}/helpers/pydev/setup_cython.py build_ext --inplace
     python3 ${pkgname}-${pkgver}/helpers/pydev/setup_cython.py build_ext --inplace
-    rm -rf ${pkgname}-${pkgver}/jre64
+    rm -rf ${pkgname}-${pkgver}/jbr
     
     cp -R ${pkgname}-${pkgver}/* ${pkgdir}/opt/${pkgname}
     sed -i 's/lcd/on/' ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
