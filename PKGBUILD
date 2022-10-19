@@ -1,5 +1,5 @@
 pkgname=pycharm-community
-pkgver=2022.2.2
+pkgver=2022.2.3
 pkgrel=1
 pkgdesc="Powerful Python and Django IDE. Community edition."
 arch=('x86_64')
@@ -8,7 +8,7 @@ url="http://www.jetbrains.com/pycharm/"
 license=('Apache')
 source=("http://download.jetbrains.com/python/${pkgname}-${pkgver}.tar.gz"
         'pycharm-community.desktop')
-md5sums=('7e44b04d42801935fbcd7766ab815e43'
+md5sums=('20e54ec8dff6484b8bed1e8c9aa4414c'
          '99ac487202a427060a9956ffa2e34a06')
 
 package() {
