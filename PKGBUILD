@@ -1,5 +1,5 @@
 pkgname=pycharm-community
-pkgver=2022.3.3
+pkgver=2023.1
 pkgrel=1
 pkgdesc="Powerful Python and Django IDE. Community edition."
 arch=('x86_64')
@@ -8,7 +8,7 @@ url="http://www.jetbrains.com/pycharm/"
 license=('Apache')
 source=("http://download.jetbrains.com/python/${pkgname}-${pkgver}.tar.gz"
         'pycharm-community.desktop')
-md5sums=('817ac61a697ebd2ed04091fed7d1041a'
+md5sums=('bf431e91088b8d06c3582da608f45811'
          '99ac487202a427060a9956ffa2e34a06')
 
 package() {
@@ -21,7 +21,7 @@ package() {
         
     cp -R ${pkgname}-${pkgver}/* ${pkgdir}/opt/${pkgname}
     sed -i 's/lcd/on/' ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
-    echo '-Dswing.aatext=true' >> ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
+    echo -e "-Dswing.aatext=true\n-Dfile.encoding=UTF-8" >> ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
 
     install -Dm644 ${srcdir}/pycharm-community.desktop ${pkgdir}/usr/share/applications/
     install -Dm 644 ${pkgdir}/opt/${pkgname}/bin/pycharm.svg ${pkgdir}/usr/share/icons/hicolor/scalable/apps/pycharm.svg
