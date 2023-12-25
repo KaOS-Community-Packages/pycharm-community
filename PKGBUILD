@@ -1,5 +1,5 @@
 pkgname=pycharm-community
-pkgver=2023.3.1
+pkgver=2023.3.2
 pkgrel=1
 _pkgdir=${pkgname}-${pkgver}
 pkgdesc="Powerful Python and Django IDE. Community edition."
@@ -9,7 +9,7 @@ url="http://www.jetbrains.com/pycharm/"
 license=('Apache')
 source=("http://download.jetbrains.com/python/${pkgname}-${pkgver}.tar.gz"
         'pycharm-community.desktop')
-md5sums=('b07c29c58375917da7c256d4e6c5599c'
+md5sums=('7374e40771356f1dcd74e40c2fb9bff3'
          '99ac487202a427060a9956ffa2e34a06')
 
 package() {
@@ -18,7 +18,6 @@ package() {
     install -dm 755 ${pkgdir}/usr/share/applications/
     install -dm 755 ${pkgdir}/usr/share/icons/hicolor/scalable/apps/
     
-    cd ${srcdir}
     python3 ${_pkgdir}/plugins/python-ce/helpers/pydev/setup_cython.py build_ext --inplace
         
     rsync -rtl "${_pkgdir}"/ ${pkgdir}/opt/${pkgname}
