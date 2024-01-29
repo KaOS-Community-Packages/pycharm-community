@@ -1,5 +1,5 @@
 pkgname=pycharm-community
-pkgver=2023.3.2
+pkgver=2023.3.3
 pkgrel=1
 _pkgdir=${pkgname}-${pkgver}
 pkgdesc="Powerful Python and Django IDE. Community edition."
@@ -9,7 +9,7 @@ url="http://www.jetbrains.com/pycharm/"
 license=('Apache')
 source=("http://download.jetbrains.com/python/${pkgname}-${pkgver}.tar.gz"
         'pycharm-community.desktop')
-md5sums=('7374e40771356f1dcd74e40c2fb9bff3'
+md5sums=('893cff0dd82586bf9b3c21d2e63243a5'
          '99ac487202a427060a9956ffa2e34a06')
 
 package() {
@@ -20,11 +20,10 @@ package() {
     
     python3 ${_pkgdir}/plugins/python-ce/helpers/pydev/setup_cython.py build_ext --inplace
         
+#    rm -rf ${_pkgdir}/jbr # DO NOT COMMIT IF UNCOMMENTED, only if you have installed jdk/openjdk version >= 17 in your system
     rsync -rtl "${_pkgdir}"/ ${pkgdir}/opt/${pkgname}
-    sed -i 's/lcd/on/' ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
-    echo -e "-Dswing.aatext=true\n-Dfile.encoding=UTF-8" >> ${pkgdir}/opt/${pkgname}/bin/pycharm64.vmoptions
 
-    install -Dm644 ${srcdir}/pycharm-community.desktop ${pkgdir}/usr/share/applications/
+    ln -s /opt/${pkgname}/bin/pycharm.sh ${pkgdir}/usr/bin/pycharm
+    install -Dm 644 ${srcdir}/${pkgname}.desktop ${pkgdir}/usr/share/applications/
     install -Dm 644 ${pkgdir}/opt/${pkgname}/bin/pycharm.svg ${pkgdir}/usr/share/icons/hicolor/scalable/apps/pycharm.svg
-    ln -s /opt/pycharm-community/bin/pycharm.sh ${pkgdir}/usr/bin/pycharm
 }
