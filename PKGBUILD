@@ -1,5 +1,5 @@
 pkgname=pycharm-community
-pkgver=2023.3.3
+pkgver=2024.1.1
 pkgrel=1
 _pkgdir=${pkgname}-${pkgver}
 pkgdesc="Powerful Python and Django IDE. Community edition."
@@ -9,7 +9,7 @@ url="http://www.jetbrains.com/pycharm/"
 license=('Apache')
 source=("http://download.jetbrains.com/python/${pkgname}-${pkgver}.tar.gz"
         'pycharm-community.desktop')
-md5sums=('893cff0dd82586bf9b3c21d2e63243a5'
+md5sums=('ca87d11b635a42b5442f4903ca1b546f'
          '99ac487202a427060a9956ffa2e34a06')
 
 package() {
